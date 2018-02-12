@@ -70,7 +70,8 @@ public class FileManager {
 			}
 			file = (File)obj;
 			fileState = new BaseState( true );
-			fileState.putInfo( "url", PathFormat.format( this.getPath( file ) ) );
+			String phyUrl=PathFormat.format( this.getPath( file ) );
+			fileState.putInfo( "url", phyUrl.substring(phyUrl.indexOf("/uploads"), phyUrl.length()));
 			state.addState( fileState );
 		}
 		

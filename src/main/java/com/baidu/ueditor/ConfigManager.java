@@ -13,6 +13,8 @@ import java.util.Map;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 
 import com.baidu.ueditor.define.ActionMap;
 
@@ -21,12 +23,14 @@ import com.baidu.ueditor.define.ActionMap;
  * @author hancong03@baidu.com
  *
  */
+@Configuration
 public final class ConfigManager {
 
 	private final String rootPath;
 	private final String originalPath;
 	private final String contextPath;
-	private static final String configFileName = "config.json";
+	@Value("${ueditor.config.filename}")
+	private static String configFileName = "config.json";
 	private String parentPath = null;
 	private JSONObject jsonConfig = null;
 	// 涂鸦上传filename定义
@@ -170,9 +174,11 @@ public final class ConfigManager {
 		}
 		
 	}
-	
+	/**
+	 * 
+	 * 获取classpath下的配置文件路径
+	 */
 	private String getConfigPath () {
-//		return this.parentPath + File.separator + ConfigManager.configFileName;
 		try {
 			//获取classpath下的config.json路径
 			return this.getClass().getClassLoader().getResource(ConfigManager.configFileName).toURI().getPath();

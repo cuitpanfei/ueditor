@@ -29,6 +29,12 @@
 		</developer>
 	</developers>
 
+	<scm>
+		<url>https://github.com/cuitpanfei/ueditor</url>
+		<connection>git@github.com:cuitpanfei/ueditor.git</connection>
+		<developerConnection>http://www.pfinfo.com.cn/</developerConnection>
+	</scm>
+
 	<properties>
 		<version.commons-codec>1.10</version.commons-codec>
 		<version.commons-io>2.5</version.commons-io>
